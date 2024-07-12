@@ -1,15 +1,36 @@
+/* margin 0 for full page */
 * {
 margin: 0%;
 }
 
-
+/* styling for the image in the header */
 .dinner-table {
 background-image: url("../images/Screenshot\ 2024-07-12\ at\ 5.38.28\ PM.png");
 background-position: center;
 background-size: cover;
 height: 250px;
 
-
-
 }
 
+/* font styling and color for "DINNER SOS" */
+header h1 .sos {
+    color: red;
+    font-size: 90px;
+    text-shadow: 2px 2px 5px rgb(250, 247, 247);
+}
+
+.dinner {
+    color: white;
+    font-size: 70px;
+    text-shadow: 2px 2px 5px rgb(6, 6, 6);
+  }
+
+  .app-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    
+  }
