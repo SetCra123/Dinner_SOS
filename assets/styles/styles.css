@@ -1,3 +1,4 @@
+
 header h1 {
     float: right;
     z-index: 2;
@@ -14,3 +15,8 @@ header img {
 
 }
     
+
+* {
+    background-color: blue;
+}
+
