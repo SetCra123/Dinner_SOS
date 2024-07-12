@@ -1,3 +1,15 @@
 * {
-    background-color: blue;
+margin: 0%;
 }
+
+
+.dinner-table {
+background-image: url("../images/DSC05590.jpg");
+background-position: center;
+background-size: cover;
+height: 200px;
+
+
+
+}
+
