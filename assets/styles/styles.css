@@ -34,3 +34,12 @@ header h1 .sos {
     font-style: normal;
     
   }
+
+  /* styling for the image columns */
+
+  .image {
+    display: flex;
+    justify-content: center;
+    border: 2px solid rgb(1, 1, 1);
+    height: 200px;
+  }
