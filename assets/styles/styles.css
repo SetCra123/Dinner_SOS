@@ -41,6 +41,17 @@ header h1 .sos {
     
   }
 
+  #searchinput {
+    height: 25px;
+     width: 200px;
+     background-color: white;
+  }
+
+  .buttons {
+    height: 28px;
+    width: 100px;
+  }
+
   .image-border {   /* styling for the image columns */
     border: hidden;
     border-radius: 30px;
