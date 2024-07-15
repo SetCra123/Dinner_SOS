@@ -48,7 +48,8 @@ header h1 .sos {
   }
 
   .buttons {
-
+    height: 28px;
+    width: 100px;
   }
 
   .image-border {   /* styling for the image columns */
