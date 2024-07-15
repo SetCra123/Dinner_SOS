@@ -50,13 +50,13 @@ function initialize() {
 
 // Fetch API data and display results
 function fetchApiData(query, map) {
-    const apiUrl = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;
+    const apiUrl = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}?pageSize=2&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
             console.log(data);
-                //displayResults(data.results, map);
+                displayResults(data.results, map);
         }
         )
         .catch(err => {
@@ -73,16 +73,14 @@ function displayResults(places, map) {
 
     places.forEach(place => {
         const placeDiv = document.createElement('div');
-        placeDiv.classList.add('card', 'mb-3');
+        placeDiv.classList.add('col', 's4');
         placeDiv.innerHTML = `
-            <div class="card-body">
-                <h5 class="card-title">${place.name}</h5>
-                <p class="card-text">Address: ${place.formatted_address}</p>
-                <p class="card-text">Rating: ${place.rating}</p>
-            </div>
+        // <img class="hoverable image-border">${place.rating}</img>
+        <h6 class="restaurant-name">${place.name}</h6>
         `;
+        // iffy about this up here (place.rating)
         resultsDiv.appendChild(placeDiv);
-
+            console.log(place)
         if (place.geometry && place.geometry.location) {
             const marker = new google.maps.Marker({
                 map: map,
