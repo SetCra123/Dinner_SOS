@@ -30,12 +30,24 @@
                     <!-- h1 DINNER SOS title -->
                     <h1 class="app-name"> <span class="dinner">DINNER </span> <span class="sos">SOS</span></h1>
                 </div>
-                <div>
-                    <!-- User Input -->
-                    <input type="text" id="searchinput">
-                    <button type="submit" id="searchButton" class="buttons">Search</button>
-                    <button type="submit" id="pick-for-me" class="buttons">Pick for me</button>
+                <!-- button to open up modal -->
+                <a class="waves-effect yellow darken-1 hungry-btn btn-large">Hungry?</a>
+                <div class="modal">
+                    <div class="modal-header">
+                        <h3>What are you in the mood for?</h3>
+                        <p>Use the search bar to type in a dinner choice (ex: Italian, Mexican or Steakhouse). If you
+                            don't know what you want to eat, select the "Pick for Me" button, which will choose for you.
+                        </p>
+                        <!-- User Input -->
+                        <div class="line-three">
+                            <input type="text" id="searchinput">
+                            <button type="submit" id="searchButton" class="buttons">Search</button>
+                            <button type="submit" id="pick-for-me" class="buttons">Pick for me</button>
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
 
         </header>

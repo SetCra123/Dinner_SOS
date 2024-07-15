@@ -105,3 +105,6 @@ function displayResults(places, map) {
 // Initialize the map when the Google Maps API is loaded
 window.google.maps.__ib__ = initialize;
 
+
+
+          
