@@ -1,0 +1,72 @@
+
+
+/* margin 0 for full page */
+* {
+margin: 0%;
+}
+
+body {
+  background-color: rgb(231, 230, 230);
+}
+
+.dinner-table { /* styling for the image background in the header */
+background-image: url("../images/Screenshot\ 2024-07-12\ at\ 5.38.28\ PM.png");
+background-position: center;
+background-size: cover;
+height: 250px;
+
+}
+
+/* font styling and color for "DINNER SOS" */
+header h1 .sos {
+    color: red;
+    font-size: 90px;
+    text-shadow: 2px 2px 5px rgb(250, 247, 247);
+    background-color: none;
+}
+
+.dinner {
+    color: white;
+    font-size: 70px;
+    text-shadow: 2px 2px 5px rgb(6, 6, 6);
+  }
+
+  .app-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    
+  }
+
+  .image-border {   /* styling for the image columns */
+    border: hidden;
+    border-radius: 30px;
+    height: 300px;
+    width: 75%;
+    margin: 0%;
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/Bloomin-Brnds-Smaller-Outback-Steakhouse-prototype_0.jpg"); /* example image */
+    
+  }
+
+  .hoverable:hover {
+    box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.474); /* color and direction of the hover shadow*/
+  }
+
+  .col {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;  /* Stacks elements vertically */
+    align-items: center; 
+  } 
+
+  .restaurant-name {  /* same font stying as the header */
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+
