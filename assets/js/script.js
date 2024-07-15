@@ -1,3 +1,24 @@
+const api = `AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;
+const searchinput = document.getElementById(`searchinput`);
+const searchButton = document.getElementById(`searchButton`);
+const apiUrl = `https://places.googleapis.com/v1/places/GyuEmsRBfy61i59si0?fields=addressComponents&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;       
+
+
+function getdata(){     
+    fetch(apiUrl)
+    .then(function (response) {
+         return response.json();
+    })
+    
+    .then(function (data) {
+         console.log(data);
+    })
+    
+    .catch(function (error) {
+         console.error(error);
+})
+}
+
 (g => {
     var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window;
     b = b[c] || (b[c] = {});
@@ -94,3 +115,4 @@ function displayResults(places, map) {
 
 // Initialize the map when the Google Maps API is loaded
 window.google.maps.__ib__ = initialize;
+
