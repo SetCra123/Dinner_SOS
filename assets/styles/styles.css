@@ -55,6 +55,10 @@ header h1 .sos {
     width: 100px;
   }
 
+.hungry-btn{
+    box-shadow: 2px 2px 5px rgb(11, 10, 10);
+}
+
 
 /* styling for modal */
 
