@@ -45,6 +45,9 @@ header h1 .sos {
     height: 25px;
      width: 200px;
      background-color: white;
+     border-color: black;
+     border-radius: 5px 5px 5px 5px solid black;
+
   }
 
   .buttons {
@@ -56,7 +59,7 @@ header h1 .sos {
 /* styling for modal */
 
 .modal {
-    display: block; /* Hidden by default */
+    display: hidden; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -65,10 +68,25 @@ header h1 .sos {
     height: 50%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: white; /* Black w/ opacity */
-    
+    background-color: white; /* Black w/ opacity */ 
   }
 
+/* style for modal-header */
+
+.modal-header {
+   display: block; 
+   justify-content: center;
+   align-content: center;
+   text-align: center;
+   margin-top: 2%;
+   padding: 5%;
+
+}
+
+.line-three {
+    padding-top: 4%;
+
+}
   .image-border {   /* styling for the image columns */
     border: hidden;
     border-radius: 30px;
