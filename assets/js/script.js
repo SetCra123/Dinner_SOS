@@ -4,20 +4,10 @@ const searchButton = document.getElementById(`searchButton`);
 const apiUrl = `https://places.googleapis.com/v1/places/GyuEmsRBfy61i59si0?fields=addressComponents&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;       
 
 
-function getdata(){     
-    fetch(apiUrl)
-    .then(function (response) {
-         return response.json();
-    })
-    
-    .then(function (data) {
-         console.log(data);
-    })
-    
-    .catch(function (error) {
-         console.error(error);
-})
-}
+searchButton.addEventListener("click", function () {
+     const foodType = searchinput.value.trim();
+     fetchApiData(foodType);
+   });
 
 (g => {
     var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window;
@@ -72,8 +62,9 @@ function fetchApiData(query, map) {
         .catch(err => {
             console.error(err);
         });
+ 
 }
-fetchApiData("mexican")
+
 
 // Display search results and place markers on the map
 function displayResults(places, map) {
