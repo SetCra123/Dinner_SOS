@@ -12,6 +12,11 @@ $(modalPop).on('click', function () {
     modal.css('display', 'block');
 });
 
+//on click function that closes modal when search, pick for me ia clicked
+$('.buttons').click(function() {
+    $('.modal').css('display', 'none');
+});
+
 
 function getdata(){     
     fetch(apiUrl)
