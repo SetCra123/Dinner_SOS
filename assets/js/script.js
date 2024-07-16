@@ -5,7 +5,11 @@ const apiUrl = `https://places.googleapis.com/v1/places/GyuEmsRBfy61i59si0?field
 const storedFoodTypes = JSON.parse(localStorage.getItem("Cuisine")) || []; 
 const foodTypeButtonContainer = document.getElementById("foodTypeButtonContainer");
 const container = document.getElementById("container");
-
+const pickForMe = document.getElementById(`pick-for-me`);
+const cuisineTypes = [`american_restaurant`, `bakery`, `barbarbecue_restaurant`, `brazilian_restaurant`, `breakfast_restaurant`, `brunch_restaurant`, `cafe`, `chinese_restaurant`, `coffee_shop`, `fast_food_restaurant`, `french_restaurant`, `greek_restaurant`, `hamburger_restaurant`, `ice_cream_shop`, `indian_restaurant`, `indonesian_restaurant`, 
+`italian_restaurant`, `japanese_restaurant`, `korean_restaurant`, `lebanese_restaurant`, `mediterranean_restaurant`, `mexican_restaurant`, `middle_eastern_restaurant`, `pizza_restaurant`, `ramen_restaurant`, `seafood_restaurant`, `spanish_restaurant`, `steak_house`, `sushi_restaurant`, `thai_restaurant`, `turkish_restaurant`, 
+`vegan_restaurant`, `vegetarian_restaurant`, `vietnamese_restaurant`];
+const therandomcuisine = cuisineTypes[Math.floor(Math.random() * cuisineTypes.length)];
 //global variable to get the value of the modal pop-up button (hungry)
 const modalPop = $('#modal-pop')
 
@@ -21,6 +25,10 @@ $('.buttons').click(function() {
 });
 
 
+
+pickForMe.addEventListener("click", function (){
+    fetchApiData(therandomcuisine);
+});    
 searchButton.addEventListener("click", function () {
      const foodType = searchinput.value.trim();
      fetchApiData(foodType);
