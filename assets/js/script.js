@@ -81,17 +81,17 @@ function displayResults(places, map) {
     console.log(places);
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = '';
-    // for (let i = 0; i < places.length; i++) {
+    for (let i = 0; i < places.length; i++) {
        
-    //     const photo_reference = places[i].photos[0].photo_reference
-    //     const placePhoto = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=${photo_reference}&key=${api}`
+        const photo_reference = places[i].photos[0].photo_reference
+        const placePhoto = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=${photo_reference}&key=${api}`
        
-    //     const placeDiv = document.createElement('div');
-    //     placeDiv.classList.add('col', 's4');
-    //     placeDiv.innerHTML = `
-    //     <img src=${placePhoto} class="hoverable image-border"></img>
-    //     <h6 class="restaurant-name">${places[i].name}</h6>
-    //     `;
+        const placeDiv = document.createElement('div');
+        placeDiv.classList.add('col', 's4');
+        placeDiv.innerHTML = `
+        <img src=${placePhoto} class="hoverable image-border"></img>
+        <h6 class="restaurant-name">${places[i].name}</h6>
+        `;
         // iffy about this up here (place.rating)
         resultsDiv.append(placeDiv);
         // FUTURE DEV - add map in
