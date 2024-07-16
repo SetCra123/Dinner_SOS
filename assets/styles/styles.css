@@ -107,11 +107,16 @@ header h1 .sos {
     box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.474); /* color and direction of the hover shadow*/
   }
 
+  .mid {
+    margin-top: 50px;
+  }
+
   .col {
     display: flex;
     justify-content: center;
     flex-direction: column;  /* Stacks elements vertically */
     align-items: center; 
+   
   } 
 
   .restaurant-name {  /* same font stying as the header */
@@ -120,3 +125,21 @@ header h1 .sos {
     font-style: normal;
   }
 
+/* styling for the bottom section */
+.directions {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  margin-top: 70px;
+}
+
+.map {
+  border: hidden;
+  border-radius: 30px;
+  height: 400px;
+  width: 55%;
+  margin: 0%;
+  background-position: center;
+  background-size: cover;
+  background-image: url("../images/route-marked-on-a-map\ \(1\).avif"); /* example image */
+}
