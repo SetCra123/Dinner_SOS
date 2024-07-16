@@ -1,7 +1,10 @@
 const api = `AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;
 const searchinput = document.getElementById(`searchinput`);
 const searchButton = document.getElementById(`searchButton`);
-const apiUrl = `https://places.googleapis.com/v1/places/GyuEmsRBfy61i59si0?fields=addressComponents&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;       
+const apiUrl = `https://places.googleapis.com/v1/places/GyuEmsRBfy61i59si0?fields=addressComponents&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;      
+const storedFoodTypes = JSON.parse(localStorage.getItem("Cuisine")) || []; 
+const foodTypeButtonContainer = document.getElementById("foodTypeButtonContainer");
+const container = document.getElementById("container");
 
 //global variable to get the value of the modal pop-up button (hungry)
 const modalPop = $('#modal-pop')
@@ -64,13 +67,14 @@ function initialize() {
 
 // Fetch API data and display results
 function fetchApiData(query, map) {
+    storeSearchHistory(query);
     const apiUrl = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}?pageSize=2&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
             console.log(data);
-                displayResults(data.results, map);
+            displayResults(data.results, map);
         }
         )
         .catch(err => {
@@ -89,7 +93,7 @@ function displayResults(places, map) {
         const placeDiv = document.createElement('div');
         placeDiv.classList.add('col', 's4');
         placeDiv.innerHTML = `
-        // <img class="hoverable image-border">${place.rating}</img>
+             // <img class="hoverable image-border">${place.rating}</img>
         <h6 class="restaurant-name">${place.name}</h6>
         `;
         // iffy about this up here (place.rating)
@@ -121,4 +125,27 @@ window.google.maps.__ib__ = initialize;
 
 
 
-          
+container.innerHTML = "";
+
+function storeSearchHistory(foodType) {
+    if (!storedFoodTypes.includes(foodType)) {
+      storedFoodTypes.push(foodType);
+      localStorage.setItem("Cuisine", JSON.stringify(storedFoodTypes));
+      renderSearchHistoryButtons();
+    }
+  }
+  
+  
+  function renderSearchHistoryButtons() {
+    foodTypeButtonContainer.innerHTML = '';
+    storedFoodTypes.forEach(foodType => {
+      const button = document.createElement("button");
+      button.textContent = foodType;
+      button.classList.add("history-btn");
+      button.addEventListener("click", () => fetchApiData(foodType));
+      foodTypeButtonContainer.appendChild(button);
+    });
+  }
+  
+  
+  renderSearchHistoryButtons();
