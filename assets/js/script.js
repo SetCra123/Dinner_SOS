@@ -3,6 +3,15 @@ const searchinput = document.getElementById(`searchinput`);
 const searchButton = document.getElementById(`searchButton`);
 const apiUrl = `https://places.googleapis.com/v1/places/GyuEmsRBfy61i59si0?fields=addressComponents&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;       
 
+//global variable to get the value of the modal pop-up button (hungry)
+const modalPop = $('#modal-pop')
+
+//on click function that opens modal when hungry button is clicked
+$(modalPop).on('click', function () {
+    const modal = $('.modal');
+    modal.css('display', 'block');
+});
+
 
 searchButton.addEventListener("click", function () {
      const foodType = searchinput.value.trim();
