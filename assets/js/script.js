@@ -31,6 +31,7 @@ pickForMe.addEventListener("click", function (){
 });    
 searchButton.addEventListener("click", function () {
      const foodType = searchinput.value.trim();
+
      fetchApiData(foodType);
    });
 
@@ -94,38 +95,43 @@ function fetchApiData(query, map) {
 
 // Display search results and place markers on the map
 function displayResults(places, map) {
+    console.log(places);
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML = '';
-
-    places.forEach(place => {
+    for (let i = 0; i < places.length; i++) {
+       
+        const photo_reference = places[i].photos[0].photo_reference
+        const placePhoto = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=800&photo_reference=${photo_reference}&key=${api}`
+       
         const placeDiv = document.createElement('div');
         placeDiv.classList.add('col', 's4');
         placeDiv.innerHTML = `
-             // <img class="hoverable image-border">${place.rating}</img>
-        <h6 class="restaurant-name">${place.name}</h6>
+        <img src=${placePhoto} class="hoverable image-border"></img>
+        <h6 class="restaurant-name">${places[i].name}</h6>
         `;
         // iffy about this up here (place.rating)
-        resultsDiv.appendChild(placeDiv);
-            console.log(place)
-        if (place.geometry && place.geometry.location) {
-            const marker = new google.maps.Marker({
-                map: map,
-                position: place.geometry.location,
-            });
+        resultsDiv.append(placeDiv);
+        // FUTURE DEV - add map in
+        // if (places[i].geometry && places[i].geometry.location) {
+        //     const marker = new google.maps.Marker({
+        //         map: map,
+        //         position: places[i].geometry.location,
+        //     });
 
-            const infowindow = new google.maps.InfoWindow();
-            marker.addListener('click', () => {
-                infowindow.setContent(`
-                    <div>
-                        <h2>${place.name}</h2>
-                        <p>${place.formatted_address}</p>
-                        <p>Rating: ${place.rating}</p>
-                    </div>
-                `);
-                infowindow.open(map, marker);
-            });
-        }
-    });
+        //     const infowindow = new google.maps.InfoWindow();
+        //     marker.addListener('click', () => {
+        //         infowindow.setContent(`
+        //             <div>
+        //                 <h2>${places[i].name}</h2>
+        //                 <p>${places[i].formatted_address}</p>
+        //                 <p>Rating: ${places[i].rating}</p>
+        //             </div>
+        //         `);
+        //         infowindow.open(map, marker);
+        //     });
+        // }  
+    }
+   
 }
 
 // Initialize the map when the Google Maps API is loaded
