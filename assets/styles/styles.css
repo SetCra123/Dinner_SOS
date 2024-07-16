@@ -87,22 +87,43 @@ header h1 .sos {
 
 }
 
+
+
 .line-three {
     padding-top: 4%;
 
 }
   .image-border {   /* styling for the image columns */
     border: hidden;
-    border-radius: 30px;
     height: 300px;
     width: 75%;
     margin: 0%;
     background-position: center;
     background-size: cover;
-    background-image: url("../images/Bloomin-Brnds-Smaller-Outback-Steakhouse-prototype_0.jpg"); /* example image */
+    /* background-image: url("../images/Bloomin-Brnds-Smaller-Outback-Steakhouse-prototype_0.jpg"); example image */
     
   }
 
+  #left-image {
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/Bloomin-Brnds-Smaller-Outback-Steakhouse-prototype_0.jpg");
+  }
+
+  #middle-image {
+    background-position: center;
+    background-size: cover;
+    background-image: url("../images/348s.jpg");
+  }
+
+    #right-image {
+      background-position: center;
+      background-size: cover;
+      background-image: url("../images/images.jpeg");
+    }
+  
+
+  
   .hoverable:hover {
     box-shadow: 1px 1px 5px 5px rgba(0, 0, 0, 0.474); /* color and direction of the hover shadow*/
   }
