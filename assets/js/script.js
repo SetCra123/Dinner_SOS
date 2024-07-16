@@ -1,8 +1,15 @@
 const api = `AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;
 const searchinput = document.getElementById(`searchinput`);
 const searchButton = document.getElementById(`searchButton`);
-const apiUrl = `https://places.googleapis.com/v1/places/GyuEmsRBfy61i59si0?fields=addressComponents&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;       
-
+const apiUrl = `https://places.googleapis.com/v1/places/GyuEmsRBfy61i59si0?fields=addressComponents&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;      
+const storedFoodTypes = JSON.parse(localStorage.getItem("Cuisine")) || []; 
+const foodTypeButtonContainer = document.getElementById("foodTypeButtonContainer");
+const container = document.getElementById("container");
+const pickForMe = document.getElementById(`pick-for-me`);
+const cuisineTypes = [`american_restaurant`, `bakery`, `barbarbecue_restaurant`, `brazilian_restaurant`, `breakfast_restaurant`, `brunch_restaurant`, `cafe`, `chinese_restaurant`, `coffee_shop`, `fast_food_restaurant`, `french_restaurant`, `greek_restaurant`, `hamburger_restaurant`, `ice_cream_shop`, `indian_restaurant`, `indonesian_restaurant`, 
+`italian_restaurant`, `japanese_restaurant`, `korean_restaurant`, `lebanese_restaurant`, `mediterranean_restaurant`, `mexican_restaurant`, `middle_eastern_restaurant`, `pizza_restaurant`, `ramen_restaurant`, `seafood_restaurant`, `spanish_restaurant`, `steak_house`, `sushi_restaurant`, `thai_restaurant`, `turkish_restaurant`, 
+`vegan_restaurant`, `vegetarian_restaurant`, `vietnamese_restaurant`];
+const therandomcuisine = cuisineTypes[Math.floor(Math.random() * cuisineTypes.length)];
 //global variable to get the value of the modal pop-up button (hungry)
 const modalPop = $('#modal-pop')
 
@@ -12,7 +19,16 @@ $(modalPop).on('click', function () {
     modal.css('display', 'block');
 });
 
+//on click function that closes modal when search, pick for me ia clicked
+$('.buttons').click(function() {
+    $('.modal').css('display', 'none');
+});
 
+
+
+pickForMe.addEventListener("click", function (){
+    fetchApiData(therandomcuisine);
+});    
 searchButton.addEventListener("click", function () {
      const foodType = searchinput.value.trim();
 
@@ -60,13 +76,14 @@ function initialize() {
 
 // Fetch API data and display results
 function fetchApiData(query, map) {
-    const apiUrl = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}?pageSize=4&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;
+    storeSearchHistory(query);
+    const apiUrl = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}?pageSize=2&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;
 
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
             console.log(data);
-                displayResults(data.results, map);
+            displayResults(data.results, map);
         }
         )
         .catch(err => {
@@ -122,4 +139,27 @@ window.google.maps.__ib__ = initialize;
 
 
 
-          
+container.innerHTML = "";
+
+function storeSearchHistory(foodType) {
+    if (!storedFoodTypes.includes(foodType)) {
+      storedFoodTypes.push(foodType);
+      localStorage.setItem("Cuisine", JSON.stringify(storedFoodTypes));
+      renderSearchHistoryButtons();
+    }
+  }
+  
+  
+  function renderSearchHistoryButtons() {
+    foodTypeButtonContainer.innerHTML = '';
+    storedFoodTypes.forEach(foodType => {
+      const button = document.createElement("button");
+      button.textContent = foodType;
+      button.classList.add("history-btn");
+      button.addEventListener("click", () => fetchApiData(foodType));
+      foodTypeButtonContainer.appendChild(button);
+    });
+  }
+  
+  
+  renderSearchHistoryButtons();
