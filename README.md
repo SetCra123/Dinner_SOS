@@ -1,69 +1,37 @@
-# Dinner_SOS
+# Dinner SOS
 
 ## Description
 
 Built a collaborative application to help people decide what to eat for dinner. If they are in the mood for a specific cuisine (ex. Thai food or pizza) they can search for that, and the application will populate the top 3, based on rating and location. If the user can't decide what to eat, there is a feature that they can choose that will randomly select a cuisine for them. 
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
-
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-
-## Installation
-
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-
-## Usage
-
-Provide instructions and examples for use. Include screenshots as needed.
-
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+## Features 
+ - Used Materialized CSS framework to style the application 
+ - Created a button to pop up a modal that includes a search input and the "pick for me" button 
+ - Implemented third party APIs and local storage to collect and store the data 
+ - The data from the third party APIs are returned to the user 
+ - When a restaurant is selected, the user is then provided directions to the nearest location 
 
 ## Credits
 
-List your collaborators, if any, with links to their GitHub profiles.
+- Amanda Changa [Link to GitHub profile](https://github.com/mandi7469)
+- Setrige Crawford [Link to GitHub profile](https://github.com/SetCra123)
+- Alex Silien [Link to GitHub profile](https://github.com/AlexSilien1)
+- Jack Rozovsky [Link to GitHub profile](https://github.com/JackRozov)
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+APIs Used:
 
-If you followed tutorials, include links to those here as well.
+- Google Places API (https://developers.google.com/maps/documentation/places/web-service) 
+- Google Maps API (Routes) - (https://developers.google.com/maps/documentation/javascript/reference/directions)
+
+## Link
+[Link to deplyed website]()
+
+The image shows the web application's apperance 
+
+![alt text](./assets/)
+
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+N/A
 
----
-
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-## Features
-
-If your project has a lot of features, list them here.
-
-## How to Contribute
-
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
