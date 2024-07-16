@@ -6,13 +6,31 @@ const storedFoodTypes = JSON.parse(localStorage.getItem("Cuisine")) || [];
 const foodTypeButtonContainer = document.getElementById("foodTypeButtonContainer");
 const container = document.getElementById("container");
 const pickForMe = document.getElementById(`pick-for-me`);
-const cuisineTypes = [`american_restaurant`, `bakery`, `barbarbecue_restaurant`, `brazilian_restaurant`, `breakfast_restaurant`, `brunch_restaurant`, `cafe`, `chinese_restaurant`, `coffee_shop`, `fast_food_restaurant`, `french_restaurant`, `greek_restaurant`, `hamburger_restaurant`, `ice_cream_shop`, `indian_restaurant`, `indonesian_restaurant`, 
-`italian_restaurant`, `japanese_restaurant`, `korean_restaurant`, `lebanese_restaurant`, `mediterranean_restaurant`, `mexican_restaurant`, `middle_eastern_restaurant`, `pizza_restaurant`, `ramen_restaurant`, `seafood_restaurant`, `spanish_restaurant`, `steak_house`, `sushi_restaurant`, `thai_restaurant`, `turkish_restaurant`, 
-`vegan_restaurant`, `vegetarian_restaurant`, `vietnamese_restaurant`];
+const cuisineTypes = [`american`, `bakery`, `barbarbecue`, `brazilian`, `breakfast`, `brunch`, `cafe`, `chinese`, `coffee_shop`, `fast food`, `french`, `greek`, `hamburger`, `ice cream`, `indian`, `indonesian`, 
+`italian`, `japanese`, `korean`, `lebanese`, `mediterranean`, `mexican`, `middle eastern`, `pizza`, `ramen`, `seafood`, `spanish`, `steak house`, `sushi`, `thai`, `turkish`, 
+`vegan`, `vegetarian`, `vietnamese`];
 const therandomcuisine = cuisineTypes[Math.floor(Math.random() * cuisineTypes.length)];
 //global variable to get the value of the modal pop-up button (hungry)
 const modalPop = $('#modal-pop')
+let latitude;
+let longitude;
 
+function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      console.log("Geolocation is not supported by this browser.");
+    }
+  }
+  
+  function showPosition(position) {
+   latitude =  position.coords.latitude;
+   longitude = position.coords.longitude;
+
+    initialize(latitude,longitude);
+  }
+  
+  getLocation();
 //on click function that opens modal when hungry button is clicked
 $(modalPop).on('click', function () {
     const modal = $('.modal');
@@ -23,7 +41,6 @@ $(modalPop).on('click', function () {
 $('.buttons').click(function() {
     $('.modal').css('display', 'none');
 });
-
 
 
 pickForMe.addEventListener("click", function (){
@@ -58,9 +75,9 @@ searchButton.addEventListener("click", function () {
 });
 
 // Initialize the map and places service
-function initialize() {
+function initialize(latitude,longitude) {
     const map = new google.maps.Map(document.getElementById("map"), {
-        center: { lat: -33.866, lng: 151.196 },
+        center: { lat: latitude, lng: longitude },
         zoom: 15,
     });
 
@@ -77,7 +94,8 @@ function initialize() {
 // Fetch API data and display results
 function fetchApiData(query, map) {
     storeSearchHistory(query);
-    const apiUrl = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}?pageSize=2&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;
+    const apiUrl = `https://floating-headland-95050.herokuapp.com/https://maps.googleapis.com/maps/api/place/textsearch/json?query=${query}&pageSize=2&location=${latitude},${longitude}&key=AIzaSyB2xJTNdvozzeQXnSXSVt9o5hApjh1Jj-s`;
+    console.log(apiUrl);
 
     fetch(apiUrl)
         .then(response => response.json())
@@ -135,7 +153,7 @@ function displayResults(places, map) {
 }
 
 // Initialize the map when the Google Maps API is loaded
-window.google.maps.__ib__ = initialize;
+
 
 
 
