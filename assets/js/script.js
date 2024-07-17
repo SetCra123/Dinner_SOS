@@ -6,10 +6,19 @@ const storedFoodTypes = JSON.parse(localStorage.getItem("Cuisine")) || [];
 const foodTypeButtonContainer = document.getElementById("foodTypeButtonContainer");
 const container = document.getElementById("container");
 const pickForMe = document.getElementById(`pick-for-me`);
-const cuisineTypes = [`american`, `bakery`, `barbarbecue`, `brazilian`, `breakfast`, `brunch`, `cafe`, `chinese`, `coffee_shop`, `fast food`, `french`, `greek`, `hamburger`, `ice cream`, `indian`, `indonesian`, 
-`italian`, `japanese`, `korean`, `lebanese`, `mediterranean`, `mexican`, `middle eastern`, `pizza`, `ramen`, `seafood`, `spanish`, `steak house`, `sushi`, `thai`, `turkish`, 
-`vegan`, `vegetarian`, `vietnamese`];
-const therandomcuisine = cuisineTypes[Math.floor(Math.random() * cuisineTypes.length)];
+
+//random cuisine selection
+
+pickForMe.addEventListener("click", function (){
+    const cuisineTypes = [`american`, `bakery`, `barbarbecue`, `brazilian`, `breakfast`, `brunch`, `cafe`, `chinese`, `coffee_shop`, `fast food`, `french`, `greek`, `hamburger`, `ice cream`, `indian`, `indonesian`, 
+        `italian`, `japanese`, `korean`, `lebanese`, `mediterranean`, `mexican`, `middle eastern`, `pizza`, `ramen`, `seafood`, `spanish`, `steak house`, `sushi`, `thai`, `turkish`, 
+        `vegan`, `vegetarian`, `vietnamese`];
+        
+        const therandomcuisine = cuisineTypes[Math.floor(Math.random() * cuisineTypes.length)];
+            fetchApiData(therandomcuisine);
+});    
+
+
 //global variable to get the value of the modal pop-up button (hungry)
 const modalPop = $('#modal-pop')
 let latitude;
@@ -43,9 +52,7 @@ $('.buttons').click(function() {
 });
 
 
-pickForMe.addEventListener("click", function (){
-    fetchApiData(therandomcuisine);
-});    
+// search button
 searchButton.addEventListener("click", function () {
      const foodType = searchinput.value.trim();
 
