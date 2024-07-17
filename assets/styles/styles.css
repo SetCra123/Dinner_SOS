@@ -154,7 +154,7 @@ header h1 .sos {
   margin-top: 70px;
 }
 
-.map {
+/* .map {
   border: hidden;
   border-radius: 30px;
   height: 400px;
@@ -163,4 +163,4 @@ header h1 .sos {
   background-position: center;
   background-size: cover;
   background-image: url("../images/route-marked-on-a-map\ \(1\).avif"); /* example image */
-}
+/* } */ 
