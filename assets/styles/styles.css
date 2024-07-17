@@ -87,7 +87,14 @@ header h1 .sos {
 
 }
 
+.close-btn {
+  float: right;
+  margin: 1%; 
+}
 
+.close-btn:hover {
+   cursor: pointer;
+}
 
 .line-three {
     padding-top: 4%;

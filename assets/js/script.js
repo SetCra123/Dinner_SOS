@@ -51,6 +51,10 @@ $('.buttons').click(function() {
     $('.modal').css('display', 'none');
 });
 
+//on click function that closes modal when x icon is clicked
+$('.close-btn').click(function() {
+    $('.modal').css('display','none');
+});
 
 // search button
 searchButton.addEventListener("click", function () {
