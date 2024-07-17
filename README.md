@@ -2,14 +2,13 @@
 
 ## Description
 
-Built a collaborative application to help people decide what to eat for dinner. If they are in the mood for a specific cuisine (ex. Thai food or pizza) they can search for that, and the application will populate the top 3, based on rating and location. If the user can't decide what to eat, there is a feature that they can choose that will randomly select a cuisine for them. 
+Built a collaborative application to help people decide what to eat for dinner. If they are in the mood for a specific cuisine (ex. Thai food or pizza) they can search for that, and the application will populate the top locations near you, based on rating. If the user can't decide what to eat, there is a feature that they can choose that will randomly select a cuisine for them. 
 
 ## Features 
  - Used Materialized CSS framework to style the application 
  - Created a button to pop up a modal that includes a search input and the "pick for me" button 
  - Implemented third party APIs and local storage to collect and store the data 
  - The data from the third party APIs are returned to the user 
- - When a restaurant is selected, the user is then provided directions to the nearest location 
 
 ## Credits
 
@@ -21,7 +20,7 @@ Built a collaborative application to help people decide what to eat for dinner. 
 APIs Used:
 
 - Google Places API (https://developers.google.com/maps/documentation/places/web-service) 
-- Google Maps API (Routes) - (https://developers.google.com/maps/documentation/javascript/reference/directions)
+- Geolocation API ()
 
 ## Link
 [Link to deplyed website]()
