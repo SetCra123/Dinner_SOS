@@ -20,14 +20,15 @@ Built a collaborative application to help people decide what to eat for dinner. 
 APIs Used:
 
 - Google Places API (https://developers.google.com/maps/documentation/places/web-service) 
-- Geolocation API ()
+- Geolocation API (https://www.w3schools.com/html/html5_geolocation.asp)
 
 ## Link
-[Link to deplyed website]()
+[Link to deplyed website](https://setcra123.github.io/Dinner_SOS/)
 
-The image shows the web application's apperance 
+The images shows the web application's apperance 
 
-![alt text](./assets/)
+![alt text](./assets/images/Screenshot%202024-07-17%20at%2011.06.01 AM.png)
+![alt text](./assets/images/Screenshot%202024-07-17%20at%2011.07.01 AM.png)
 
 
 ## License
